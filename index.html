@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Product list with cart</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="mainPage">
+    <div class="left">
+      <h1>Desserts</h1>
+      <div id="catalog" class="catalog"></div>
+    </div>
+    <div class="right">
+      <div class="cart" id="cart">
+        <h2 class="cart-h" id="yourCart">Your Cart (0)</h2>
+        <div class="cartList">
+          <img src="assets/images/illustration-empty-cart.svg" alt="" class="emptyCart">
+        </div>
+        <div class="totalOrder">
+          <span>Order Total</span>
+          <div id="cartTotal">$0.00</div>
+        </div>
+        <div class="carbonDelivery" id="carbonDelivery">
+        </div>
+        <dialog class="confirming" id="confirming">
+          <p>This modal dialog has a groovy backdrop!</p>
+          <button class="approve" id="approve">Approve</button>
+        </dialog>
+        <button class="confirm-order" id="confirm-order" onclick="">Confirm Order</button>
+      </div>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Azamat</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
