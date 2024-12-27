@@ -148,6 +148,8 @@ h5 {
     flex-direction: column;
     border-radius: 18px;
     padding: 0 30px;
+    position: sticky;
+    top: 0;
 }
 
 .confirm-order {
@@ -220,4 +222,46 @@ h5 {
 .emptyCart {
     width: 300px;
     padding: 10px 40px;
+}
+
+.confirming {
+    width: 640px;
+    height: fit-content;
+    flex-direction: column;
+    padding: 50px;
+    border-style: none;
+    border-radius: 28px;
+}
+
+h3 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.confirmImg {
+    width: 64px;
+}
+
+.confirming > span {
+    font-size: 20px;
+    color: rgba(128, 128, 128, 0.589);
+}
+
+.yourOrder {
+    padding: 10px;
+}
+
+.approve {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: 0 70px;
+    background-color: var(--Red);
+    color: var(--Rose50);
+    font-size: 16px;
+    padding: 10px 40px;
+    border-radius: 48px;
+    margin: 20px 20px;
+    border-style: none;
 }

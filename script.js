@@ -101,6 +101,7 @@ const data = [
 ];
 
 let cart = [];
+let yourOrder = [];
 
 function addProduct(id) {
     const product = data[id];
@@ -115,6 +116,12 @@ function addProduct(id) {
             price: product.price,
             quantity: 1
         });
+        yourOrder.push({
+            id: id,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        })
     }
     updateCartDisplay();
     renderCatalog();
@@ -158,8 +165,10 @@ function removeProduct(id) {
     if (index !== -1) {
         if (cart[index].quantity > 1) {
             cart[index].quantity--;
+            yourOrder[index].quantity--;
         } else {
             cart.splice(index, 1);
+            yourOrder.splice(index, 1);
         }
     }
     updateCartDisplay();
@@ -168,11 +177,13 @@ function removeProduct(id) {
 
 function updateCartDisplay() {
     const cartList = document.querySelector('.cartList');
+    const cartList1 = document.querySelector('#cartList');
     const carbonDelivery = document.querySelector('.carbonDelivery');
     let productCartHTML = '';
     let cartHTML = '';
     let total = 0;
     let totalItems = 0;
+    let yourOrderHTML = '';
 
     if (cart == 0) {
         productCartHTML += `<img src="assets/images/illustration-empty-cart.svg" alt="" class="emptyCart">`
@@ -197,22 +208,14 @@ function updateCartDisplay() {
           `<img src="assets/images/icon-carbon-neutral.svg" alt="">
           <span>This is a <b>carbon-neutral</b> delivery</span>`
     }
+
+    // if (cart > )
     
     carbonDelivery.innerHTML = cartHTML;
     cartList.innerHTML = productCartHTML;
+    cartList1.innerHTML = productCartHTML;
     document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
     document.getElementById('yourCart').textContent = `Your Cart (${totalItems})`
-}
-
-function confirmOrder() {
-    total = 0;
-    totalItems = 0;
-    cart = [];
-
-    alert(`Thanks! Your order confirmed!`);
-
-    updateCartDisplay();
-    renderCatalog();
 }
 
 const dialog = document.querySelector('dialog');
@@ -225,6 +228,12 @@ confirmButton.addEventListener("click", () => {
 
 approve.addEventListener("click", () => {
     dialog.close();
+    total = 0;
+    totalItems = 0;
+    cart = [];
+
+    updateCartDisplay();
+    renderCatalog();
 });
 
 

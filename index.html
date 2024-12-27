@@ -33,9 +33,22 @@
         </div>
         <div class="carbonDelivery" id="carbonDelivery">
         </div>
-        <dialog class="confirming" id="confirming">
-          <p>This modal dialog has a groovy backdrop!</p>
-          <button class="approve" id="approve">Approve</button>
+        <dialog class="confirming" id="confirming" close>
+          <img src="assets/images/icon-order-confirmed.svg" alt="" class="confirmImg" id="confirmImg">
+          <h3>Order Confirmed</h3>
+          <span>We hope you enjoy your food!</span>
+          <div class="cart" id="cart">
+            <div class="cartList" id="cartList">
+
+            </div>
+            <div class="totalOrder">
+              <span>Order Total</span>
+              <div id="cartTotal">$0.00</div>
+            </div>
+          </div>
+          <div class="approve-block">
+            <button class="approve" id="approve">Start New Order</button>
+          </div>
         </dialog>
         <button class="confirm-order" id="confirm-order" onclick="">Confirm Order</button>
       </div>
