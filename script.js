@@ -177,9 +177,10 @@ function removeProduct(id) {
 
 function updateCartDisplay() {
     const cartList = document.querySelector('.cartList');
-    const cartList1 = document.querySelector('#cartList');
+    const cartList1 = document.querySelector('#cartList1');
     const carbonDelivery = document.querySelector('.carbonDelivery');
     let productCartHTML = '';
+    let productCartHTML1 = '';
     let cartHTML = '';
     let total = 0;
     let totalItems = 0;
@@ -203,19 +204,35 @@ function updateCartDisplay() {
     }
 
     if (cart != 0) {
+        cart.forEach(item => {
+            productCartHTML1 += `
+                <div class="cart-element1" data-id="${item.id}">
+                    <img src="${data[item.id].image.thumbnail}" alt="${item.name}" class="cart-product-img">
+                    <div class="textbox">
+                        <p class="product-name">${item.name}</p>
+                        <div class="quantity">
+                            <span class="itemQuantity"> X ${item.quantity} </span><span>* $${item.price.toFixed(2)} = $${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    </div>
+                </div>`;
+            total += item.price * item.quantity;
+            totalItems += item.quantity;
+        });
+    }
+
+    if (cart != 0) {
         carbonDelivery.classList.add('nonEmptyCart');
         cartHTML += 
           `<img src="assets/images/icon-carbon-neutral.svg" alt="">
-          <span>This is a <b>carbon-neutral</b> delivery</span>`
+          <span>This is a <b>carbon-neutral</b> delivery</span>`;
     }
-
-    // if (cart > )
     
     carbonDelivery.innerHTML = cartHTML;
     cartList.innerHTML = productCartHTML;
-    cartList1.innerHTML = productCartHTML;
+    cartList1.innerHTML = productCartHTML1;
     document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
-    document.getElementById('yourCart').textContent = `Your Cart (${totalItems})`
+    document.getElementById('cartTotal1').textContent = `${document.getElementById('cartTotal').textContent}`;
+    document.getElementById('yourCart').textContent = `Your Cart (${totalItems})`;
 }
 
 const dialog = document.querySelector('dialog');
@@ -235,7 +252,5 @@ approve.addEventListener("click", () => {
     updateCartDisplay();
     renderCatalog();
 });
-
-
 
 renderCatalog();
